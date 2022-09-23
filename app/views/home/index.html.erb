@@ -1,0 +1,43 @@
+<div class= "container">
+<% if current_user.nil? %>
+<div class="row">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Rolebase</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+               <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+            <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
+
+             </li>
+             <li>
+             <%= link_to "Posts", posts_path, class: "nav-link" %>
+
+             </li>
+            <li class="nav-item">
+             </li>
+            <li class="nav-item">
+               <%= link_to "Login", new_user_session_path, class: "nav-link" %> 
+             </li>
+         </ul>
+      </div>
+   </nav>
+</div>
+<% end %>
+</div>
+
+<div class="container">
+ <h1>Home</h1>
+ <% if current_user.nil? %>
+   you Need to Login first to view
+
+ <% else %>
+	<%= link_to test_index_path, class: "login-button" do %>Go to App<% end %>
+      <%=link_to "View Posts",posts_path %>
+ <% end %>
+</div>

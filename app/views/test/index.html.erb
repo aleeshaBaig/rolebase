@@ -1,0 +1,27 @@
+
+<div class="container">
+
+<div class="row">
+<div class="col-md-12">
+  <%= render "partials/header" %>
+<br>
+
+</div>
+</div>
+</div>
+<div class="container">
+      <h1>Test</h1>
+
+  <div class="row">
+
+    <div class="col-sm">
+<% if can? :manage, User %>
+	<p>Visible only for superadmins and supervisors! </p>
+  <%= link_to "View Dashboard", rails_admin_path %>
+<% end %>    </div>
+    <div class="col-sm">
+     </div>
+    <div class="col-sm">
+     </div>
+  </div>
+</div>
