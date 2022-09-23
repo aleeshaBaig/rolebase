@@ -1,0 +1,47 @@
+ 
+<div class="container">
+<div class="row">
+<%= render "partials/header" %>
+</div>
+</div>
+<hr>
+<p style="color: green"><%= notice %></p>
+<br>
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+     <h1>Bills</h1>
+     <%= link_to "New post", new_bill_path %>
+
+<table class="table">
+<thead>
+  <tr>
+     <th scope="col">ConsumerNo</th>
+    <th scope="col">Company</th>
+    <th scope="col">Amount</th>
+    <th scope="col">Action</th>
+  </tr>
+</thead>
+<tbody>
+<% @bills.each do |bill| %>
+  <tr>
+     <td><%= bill.consumer_id %></td>
+    <td><%= bill.company%></td>
+    <td><%= bill.amount%></td>
+
+    <td><% if can? :update, Bill %>
+    <%= link_to "Edit this post", edit_bill_path(bill) %> 
+     <%= link_to "Destroy this post", bill, method: :delete %>
+   <% end %>
+<%= link_to "Back to posts", @bill %></td>
+   </tr>
+ <% end %>
+</tbody>
+</table>
+ 
+   </div>
+</div>
+</div>
+
+
+

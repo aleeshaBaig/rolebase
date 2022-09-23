@@ -20,6 +20,9 @@
   <%= link_to "View Dashboard", rails_admin_path %>
 <% end %>    </div>
     <div class="col-sm">
+    <% if can? :manage, Post %>
+	<p>Postss</p>
+ <% end %>
      </div>
     <div class="col-sm">
      </div>

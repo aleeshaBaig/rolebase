@@ -10,8 +10,9 @@ class Ability
       can :access, :rails_admin       # only allow admin users to access Rails Admin
       can :manage, :dashboard         # allow access to dashboard
       end
-      if user.supervisor_role?
-      can :manage, User
+      if user.user_role?
+      can :manage, Post, user_id: user.id
+      can :manage, Bill, user_id: user.id
       end
     # Define abilities for the user here. For example:
     #

@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_post, only: %i[ show edit update destroy ]
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.accessible_by(current_ability)
+    @users = User.accessible_by(current_ability)
   end
 
   # GET /posts/1 or /posts/1.json

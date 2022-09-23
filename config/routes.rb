@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bills
   resources :posts
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'test/index'

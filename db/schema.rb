@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_23_074833) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_23_120625) do
+  create_table "bills", force: :cascade do |t|
+    t.integer "consumer_id"
+    t.string "company"
+    t.decimal "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
